@@ -21,7 +21,7 @@ exports.registerUser = CatchAsyncError(async (req, res, next) => {
   sendToken(user, 201, res);
 });
 
-// login user
+// login user test
 
 exports.loginUser = CatchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
@@ -39,7 +39,7 @@ exports.loginUser = CatchAsyncError(async (req, res, next) => {
   sendToken(user, 201, res);
 });
 
-// logout user
+// logout user for test git hub
 
 exports.logOutUser = CatchAsyncErro(async (req, res, next) => {
   res.cookie("token", null, {
@@ -48,7 +48,7 @@ exports.logOutUser = CatchAsyncErro(async (req, res, next) => {
   });
   res.status(200).json({
     status: "success",
-    message: " Log Out Successfully",
+    message: " Log Out Successfullys",
   });
 });
 
@@ -59,7 +59,7 @@ exports.forgotPassword = CatchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("user not found", 404));
   }
 
-  // Get reset token
+  // Get reset
   const resetToken = user.passwordResetToken();
 
   await user.save({ validateBeforeSave: false });
